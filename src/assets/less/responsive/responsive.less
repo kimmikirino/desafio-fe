@@ -1,0 +1,61 @@
+@media screen and (min-width:1023px) {
+  .navbar-form {
+    margin-top: 10px;
+    position: relative;
+
+    .fa-search {
+      right: 23px;
+      position: absolute;
+      top: 8px;
+      cursor: pointer;
+    }
+
+    .form-control {
+      color: @white;
+      background-color: transparent;
+      border:none;
+      box-shadow: none;
+      width: 250px;
+
+      &:active, &:focus {
+        background-color: #912f4c;
+        border: solid 1px @white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  header {
+    .navbar-default {
+      .navbar-toggle {
+        background-color: #FFFFFF;
+
+        &:hover, &:focus {
+          background-color: #FFFFFF;
+        }
+      }
+    }
+    .nav > li {
+      &.dropdown {
+        display: none;
+      }
+      &.collapse-vagas {
+        display: block;
+        a {
+          color: #FFFFFF;
+        }
+      }
+    }
+
+    input.form-control {
+      padding-left: 30px;
+    }
+    .fa-search {
+      position: absolute;
+      bottom: 34px;
+      left: 40px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="container trending">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Vídeo em destaque</h2>
+      <play-video
+        url='{{url}}'
+        title='{{videoDetails.title}}'
+        viewcount='{{videoStatistics.viewCount}}'
+        publishedat='{{videoDetails.publishedAt}}'
+        description='{{videoDetails.description}}'
+      >
+      </play-video>
+    </div>
+    <div class="col-sm-4">
+      <h2>+ Vídeos</h2>
+      <div class="content play-list">
+        <div class="row" ng-repeat="video in videosList">
+          <play-list
+            ng-click='playVideo(video)'
+            url="{{video.snippet.thumbnails.medium.url}}"
+            title="{{video.snippet.title}}"
+            viewcount="{{video.statistics.viewCount}}">
+          </play-list>
+        </div>
+        <div class="loading">
+          <i class="fa fa-spinner fa-pulse fa-3x fa-fw" ng-show="loadingMoreVideos"></i>
+          <button class="btn btn-default btn-block" ng-click="moreVideos()" ng-hide="loadingMoreVideos">Carregar mais vídeos...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="loading">Carregando ... </div>
+</div>
