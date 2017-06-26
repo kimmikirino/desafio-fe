@@ -9,10 +9,11 @@ videosDirectives.directive('playVideo', ['$routeParams', '$filter', function ($r
         restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
         templateUrl: 'components/videos/partials/playVideo.html',
         replace: false,
-        scope: {url: '@', title: '@', viewcount: '@', publishedat: '@', description:'@'},
+        scope: {url: '@', title: '@', viewcount: '@viewcount', publishedat: '@publishedat', description:'@'},
         link: function ($scope, iElm, iAttrs, controller) {
             $scope.dateFormat = "dd 'de' MMMM 'de' yyyy";
             $scope.showDescription = false;
+            $scope.url = "";
 
             $scope.showHideDescription = function () {
                 $scope.showDescription = !$scope.showDescription;
