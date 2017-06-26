@@ -2,7 +2,7 @@
   <span class="iframe-box">
     <iframe width="560" height="349" src="{{url}}" frameborder="0" allowfullscreen class="video-iframe"></iframe>
   </span>
-  <div class="info-box">
+  <div class="info-box" ng-click="showHideDescription()">
     <span>
       <span style="margin: 10px  0">
         <span class="title">{{title}}</span>
@@ -16,6 +16,6 @@
         </span>
       </span>
     </span>
-    <p style="white-space: pre-wrap; margin-top: 10px; word-wrap: break-word;">{{description}}</p>
+    <p class="description-box" ng-class="{'show-box': showDescription, 'hide-box': !showDescription}" >{{description}}</p>
   </div>
 </div>

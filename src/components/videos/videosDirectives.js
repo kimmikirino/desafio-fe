@@ -12,6 +12,11 @@ videosDirectives.directive('playVideo', ['$routeParams', '$filter', function ($r
         scope: {url: '@', title: '@', viewcount: '@', publishedat: '@', description:'@'},
         link: function ($scope, iElm, iAttrs, controller) {
             $scope.dateFormat = "dd 'de' MMMM 'de' yyyy";
+            $scope.showDescription = false;
+
+            $scope.showHideDescription = function () {
+                $scope.showDescription = !$scope.showDescription;
+            };
         }
     };
 }]);
