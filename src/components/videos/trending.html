@@ -14,7 +14,7 @@
     <div class="col-sm-4">
       <h2>+ Vídeos</h2>
       <div class="content play-list">
-        <div class="row" ng-repeat="video in videosList">
+        <div class="row" ng-repeat="video in videosList track by $index">
           <play-list
             ng-click='playVideo(video)'
             url="{{video.snippet.thumbnails.medium.url}}"

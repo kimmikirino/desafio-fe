@@ -4,10 +4,10 @@ var videosAPI = angular.module('videosAPI', ['ngResource', 'appConfig']);
 
 videosAPI.service('videosAPI', ['youtubeConfig', '$http', function(youtubeConfig, $http){
 
-    this.getVideos = function(part, playlistId, maxResults){
+    this.getVideos = function(part, maxResults){
         return $http({
                     method : 'GET',
-                    url : youtubeConfig.listItems(part, playlistId, maxResults)
+                    url : youtubeConfig.listItems(part, maxResults)
                 });
     };
 

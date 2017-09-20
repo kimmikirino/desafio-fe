@@ -45,11 +45,11 @@ videos.controller('trendingController', ['$scope', '$rootScope','videosServices'
             $scope.url = youtubeConfig.playVideo + $scope.videoSelected;
         };
 
-        videosServices.getVideos($scope.countVideos).then( function success(data) {
+        videosServices.getVideos($scope.countVideos).then( function (data) {
             $scope.videos = data.data.items;
             let concatVideos = concatId($scope.videos);
 
-            videosServices.getVideoStatistic(concatVideos).then( function success (videoData) {
+            videosServices.getVideoStatistic(concatVideos).then( function (videoData) {
                 $scope.loading = false;
                 angular.merge($scope.videos, videoData.data.items);
                 selectVideo($scope.videos[0]);
@@ -69,10 +69,10 @@ videos.controller('trendingController', ['$scope', '$rootScope','videosServices'
         $scope.moreVideos = function () {
             $scope.loadingMoreVideos = true;
             $scope.countVideos = $scope.countVideos + 5;
-            videosServices.getVideos($scope.countVideos).then( function success(data) {
+            videosServices.getVideos($scope.countVideos).then( function (data) {
                 $scope.videosList = data.data.items;
                 let concatVideos = concatId($scope.videosList);
-                videosServices.getVideoStatistic(concatVideos).then( function success (videoData) {
+                videosServices.getVideoStatistic(concatVideos).then( function  (videoData) {
                     angular.merge($scope.videosList, videoData.data.items);
                     $scope.loadingMoreVideos = false;
                 }, function error (errorData) {
@@ -113,11 +113,11 @@ videos.controller('videosController', ['$scope', '$routeParams','$location', 'vi
             $scope.url = youtubeConfig.playVideo + $scope.videoSelected;
         };
 
-        videosServices.getVideos($scope.countVideos).then( function success(data) {
+        videosServices.getVideos($scope.countVideos).then( function (data) {
             $scope.videosListAll = data.data.items;
             $scope.pageInfo = data.data.pageInfo;
             let concatVideos = concatId($scope.videosListAll);
-            videosServices.getVideoStatistic(concatVideos).then( function success (videoData) {
+            videosServices.getVideoStatistic(concatVideos).then( function  (videoData) {
                 $scope.loading = false;
                 angular.merge($scope.videosListAll, videoData.data.items);
                 $scope.videosList = $scope.videosListAll;
@@ -132,17 +132,17 @@ videos.controller('videosController', ['$scope', '$routeParams','$location', 'vi
         $scope.moreVideos = function () {
             $scope.loadingMoreVideos = true;
             $scope.countVideos = $scope.pageInfo.totalResults;
-            videosServices.getVideos($scope.countVideos).then( function success(data) {
+            videosServices.getVideos($scope.countVideos).then( function (data) {
                 console.log(data);
                 $scope.videosList = data.data.items;
                 let concatVideos = concatId($scope.videosList);
-                videosServices.getVideoStatistic(concatVideos).then( function success (videoData) {
+                videosServices.getVideoStatistic(concatVideos).then( function  (videoData) {
                     angular.merge($scope.videosList, videoData.data.items);
                     $scope.loadingMoreVideos = false;
-                }, function error (errorData) {
+                }, function (errorData) {
                     console.log(data);
                 });
-            }, function error (data) {
+            }, function (data) {
                 console.log(data);
             });
         };
